@@ -116,12 +116,6 @@ options:
                         The color of the window hint.
 ```
 
-<!-- <!-- this section is optional --> -->
-<!-- ## 🙋 FAQ -->
-
-<!-- -	Q: **_"Where can I find the doc?"_**\ -->
-<!-- 	A: Run `:help theme` -->
-
 ## 💝 Thanks to
 
 - [EdenQwQ](https://github.com/EdenQwQ)
