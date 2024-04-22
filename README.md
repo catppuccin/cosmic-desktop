@@ -41,7 +41,7 @@
 1. Clone this repository locally
 
 ```bash
-git clone https://github.com/EdenQwQ/cosmic.git
+git clone https://github.com/catppuccin/cosmic.git
 ```
 
 2. Open COSMIC Settings and navigate to `Desktop -> Appearance`
@@ -64,7 +64,7 @@ You can use this script to generate a custom config with your preferred colors a
 2. Clone this repository locally and cd into it
 
 ```bash
-git clone https://github.com/EdenQwQ/cosmic.git
+git clone https://github.com/catppuccin/cosmic.git
 cd cosmic
 ```
 
