@@ -51,11 +51,6 @@ git clone https://github.com/EdenQwQ/cosmic.git
 ### COSMIC Terminal Color Scheme
 
 1. Clone this repository locally
-
-```bash
-git clone https://github.com/EdenQwQ/cosmic.git
-```
-
 2. Open COSMIC Terminal and navigate to `View -> Color schemes...`
 3. Click `Import` and browse to where you cloned this repository
 4. Select the desired theme under `cosmic-term`
