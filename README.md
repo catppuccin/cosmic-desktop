@@ -65,7 +65,7 @@ You can use this script to generate a custom config with your preferred colors a
 
 ```bash
 git clone https://github.com/catppuccin/cosmic-de.git
-cd cosmic
+cd cosmic-de
 ```
 
 3. Create a virtual environment and install the required dependencies
