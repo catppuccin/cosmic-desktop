@@ -2,7 +2,7 @@ from catppuccin import PALETTE
 import argparse
 
 parser = argparse.ArgumentParser(
-    description="Generate a Catppuccino theme for Cosmic Desktop"
+    description="Generate a Catppuccin theme for Cosmic Desktop"
 )
 parser.add_argument(
     "flavor",

@@ -6,9 +6,9 @@
 </h3>
 
 <p align="center">
-	<a href="https://github.com/catppuccin/cosmic/stargazers"><img src="https://img.shields.io/github/stars/catppuccin/cosmic?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-	<a href="https://github.com/catppuccin/cosmic/issues"><img src="https://img.shields.io/github/issues/catppuccin/cosmic?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-	<a href="https://github.com/catppuccin/cosmic/contributors"><img src="https://img.shields.io/github/contributors/catppuccin/cosmic?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+	<a href="https://github.com/catppuccin/cosmic-de/stargazers"><img src="https://img.shields.io/github/stars/catppuccin/cosmic-de?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+	<a href="https://github.com/catppuccin/cosmic-de/issues"><img src="https://img.shields.io/github/issues/catppuccin/cosmic-de?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+	<a href="https://github.com/catppuccin/cosmic-de/contributors"><img src="https://img.shields.io/github/contributors/catppuccin/cosmic-de?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
 <p align="center">
@@ -41,7 +41,7 @@
 1. Clone this repository locally
 
 ```bash
-git clone https://github.com/catppuccin/cosmic.git
+git clone https://github.com/catppuccin/cosmic-de.git
 ```
 
 2. Open COSMIC Settings and navigate to `Desktop -> Appearance`
@@ -64,7 +64,7 @@ You can use this script to generate a custom config with your preferred colors a
 2. Clone this repository locally and cd into it
 
 ```bash
-git clone https://github.com/catppuccin/cosmic.git
+git clone https://github.com/catppuccin/cosmic-de.git
 cd cosmic
 ```
 
@@ -89,7 +89,7 @@ usage: generate.py [-h] [--accent [accent color]]
                    [--window-hint-color [window hint color]]
                    [theme flavor]
 
-Generate a Catppuccino theme for Cosmic Desktop
+Generate a Catppuccin theme for Cosmic Desktop
 
 positional arguments:
   theme flavor          The flavor of the theme to generate. Can be 'mocha',

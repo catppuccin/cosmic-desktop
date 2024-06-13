@@ -1,1 +1,1 @@
-catppuccin
+catppuccin==2.2.0
