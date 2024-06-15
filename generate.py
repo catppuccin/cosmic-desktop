@@ -33,15 +33,6 @@ parser.add_argument(
     help="The alpha value of the background color.",
 )
 parser.add_argument(
-    "--frosted",
-    "-f",
-    type=bool,
-    metavar="frosted effect",
-    dest="is_frosted",
-    default=False,
-    help="Whether to use frosted glass effect for the theme.",
-)
-parser.add_argument(
     "--outer-gap",
     "-o",
     type=int,
@@ -96,7 +87,6 @@ args = parser.parse_args()
 flavor = args.flavor
 accent = args.accent
 bg_alpha = args.bg_alpha
-is_frosted = args.is_frosted
 outer_gap_size = args.outer_gap_size
 inner_gap_size = args.inner_gap_size
 active_hint_size = args.active_hint_size
@@ -239,8 +229,7 @@ for color in other_map:
     )),"""
     )
 print(
-    f"""    is_frosted: {"true" if is_frosted else "false"},
-    gaps: ({outer_gap_size}, {inner_gap_size}),
+    f"""    gaps: ({outer_gap_size}, {inner_gap_size}),
     active_hint: {active_hint_size},
 )"""
 )

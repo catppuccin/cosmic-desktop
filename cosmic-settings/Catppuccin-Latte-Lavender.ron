@@ -286,7 +286,6 @@
         blue: 0.99215686,
         alpha: 1.0,
     )),
-    is_frosted: false,
     gaps: (0, 8),
     active_hint: 3,
 )

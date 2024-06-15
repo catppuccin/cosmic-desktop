@@ -81,7 +81,7 @@ pip install -r requirements.txt
 ```bash
 $ python generate.py --help
 usage: generate.py [-h] [--accent [accent color]]
-                   [--bg-alpha [background alpha]] [--frosted frosted effect]
+                   [--bg-alpha [background alpha]]
                    [--outer-gap [outer gap size]]
                    [--inner-gap [inner gap size]]
                    [--active-hint [active hint size]]
@@ -101,8 +101,6 @@ options:
                         The accent color to use for the theme.
   --bg-alpha [background alpha], -b [background alpha]
                         The alpha value of the background color.
-  --frosted frosted effect, -f frosted effect
-                        Whether to use frosted glass effect for the theme.
   --outer-gap [outer gap size], -o [outer gap size]
                         The size of the outer gap.
   --inner-gap [inner gap size], -i [inner gap size]
