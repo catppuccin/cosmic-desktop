@@ -1,0 +1,32 @@
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: setup python env
+      run: pip install -r requirements.txt
+
+    - name: generate theme files
+      run: ./release.sh
+
+    - name: release assets
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          cosmic-settings/*
+          cosmic-term/*
