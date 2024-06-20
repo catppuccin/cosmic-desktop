@@ -231,5 +231,6 @@ for color in other_map:
 print(
     f"""    gaps: ({outer_gap_size}, {inner_gap_size}),
     active_hint: {active_hint_size},
+    is_frosted: false,
 )"""
 )
