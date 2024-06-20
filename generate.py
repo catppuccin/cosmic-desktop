@@ -83,6 +83,16 @@ parser.add_argument(
     dest="window_hint_color",
     help="The color of the window hint.",
 )
+parser.add_argument(
+    "--is-frosted",
+    "-f",
+    type=str,
+    metavar="is frosted",
+    nargs="?",
+    default="false",
+    dest="is_frosted",
+    help="",
+)
 args = parser.parse_args()
 flavor = args.flavor
 accent = args.accent
@@ -92,6 +102,7 @@ inner_gap_size = args.inner_gap_size
 active_hint_size = args.active_hint_size
 roundness = args.roundness
 window_hint_color = accent if args.window_hint_color is None else args.window_hint_color
+is_frosted = args.is_frosted
 
 palette_map = {
     "blue": "blue",
@@ -231,6 +242,6 @@ for color in other_map:
 print(
     f"""    gaps: ({outer_gap_size}, {inner_gap_size}),
     active_hint: {active_hint_size},
-    is_frosted: false,
+    is_frosted: {is_frosted},
 )"""
 )
