@@ -288,4 +288,5 @@
     )),
     gaps: (0, 8),
     active_hint: 3,
+    is_frosted: false,
 )
