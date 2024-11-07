@@ -24,14 +24,14 @@ whiskers:
             alpha: 1.0,
         ),
 {%- endmacro palette_color -%}
-{%- macro other_color(name, color, alpha=1.0) -%}
+{%- macro optional_color(name, color, alpha=1.0) -%}
     {{ name }}: Some((
         red: {{ color.rgb.r / 255 | trunc(places=8) }},
         green: {{ color.rgb.g / 255 | trunc(places=8) }},
         blue: {{ color.rgb.b / 255 | trunc(places=8) }},
         alpha: {{ alpha | trunc(places=8) }},
     )),
-{%- endmacro other_color -%}
+{%- endmacro optional_color -%}
 {%- set palette = flavor.colors -%}
 (
     palette: {{ if(cond=flavor.dark, t="Dark", f="Light") }}((
@@ -110,21 +110,21 @@ whiskers:
         radius_xl: (160.0, 160.0, 160.0, 160.0),
         {%- endif %}
     ),
-    {{ self::other_color(name="bg_color", color=base, alpha=bg_alpha) }}
-    {{ self::other_color(name="text_tint", color=text) }}
-    {{ self::other_color(name="accent", color=palette[accent]) }}
-    {{ self::other_color(name="success", color=green) }}
-    {{ self::other_color(name="warning", color=yellow) }}
-    {{ self::other_color(name="destructive", color=red) }}
-    {{ self::other_color(name="window_hint", color=palette[window_hint]) }}
+    {{ self::optional_color(name="bg_color", color=base, alpha=bg_alpha) }}
+    {{ self::optional_color(name="text_tint", color=text) }}
+    {{ self::optional_color(name="accent", color=palette[accent]) }}
+    {{ self::optional_color(name="success", color=green) }}
+    {{ self::optional_color(name="warning", color=yellow) }}
+    {{ self::optional_color(name="destructive", color=red) }}
+    {{ self::optional_color(name="window_hint", color=palette[window_hint]) }}
     {% if not flavor.dark -%}
     neutral_tint: None,
     primary_container_bg: None,
     secondary_container_bg: None,
     {%- else -%}
-    {{ self::other_color(name="neutral_tint", color=overlay1) }}
-    {{ self::other_color(name="primary_container_bg", color=surface0) }}
-    {{ self::other_color(name="secondary_container_bg", color=surface1) }}
+    {{ self::optional_color(name="neutral_tint", color=overlay1) }}
+    {{ self::optional_color(name="primary_container_bg", color=surface0) }}
+    {{ self::optional_color(name="secondary_container_bg", color=surface1) }}
     {%- endif %}
     is_frosted: {{ frosted }},
     gaps: ({{ outer_gap_size }}, {{ inner_gap_size }}),
