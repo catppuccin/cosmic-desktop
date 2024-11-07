@@ -192,7 +192,7 @@ for color in eval(f"PALETTE.{flavor}.colors"):
 print(
     f"""(
     palette: {"Light" if flavor == "latte" else "Dark"}((
-        name: "Catpuccin-{flavor.capitalize()}-{accent.capitalize()}","""
+        name: "Catppuccin-{flavor.capitalize()}-{accent.capitalize()}","""
 )
 for color in palette_map:
     catppuccin_color = catppuccin_colors[palette_map[color]]
