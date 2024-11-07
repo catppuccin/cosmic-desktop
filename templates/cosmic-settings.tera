@@ -9,7 +9,7 @@ active_hint_size: 3
 whiskers:
     version: 2.5.1
     matrix:
-    - variant: ["round", "slightlyround", "square"]
+    - variant: ["", "round", "slightlyround", "square"]
     - flavor
     - accent
     filename: "themes/{{ name }}{{ variant | capitalize }}-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}.ron"
@@ -32,47 +32,47 @@ whiskers:
         alpha: {{ alpha | trunc(places=8) }},
     )),
 {%- endmacro other_color -%}
-{%- set c = flavor.colors -%}
+{%- set palette = flavor.colors -%}
 (
-    palette: {{ if(cond=(flavor.identifier == "latte"), t="Light", f="Dark") }}((
+    palette: {{ if(cond=flavor.dark, t="Dark", f="Light") }}((
         name: "Carburetor-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}",
-        {{ self::palette_color(name="blue", color=c.blue) }}
-        {{ self::palette_color(name="red", color=c.red) }}
-        {{ self::palette_color(name="green", color=c.green) }}
-        {{ self::palette_color(name="yellow", color=c.yellow) }}
-        {{ self::palette_color(name="gray_1", color=c.mantle) }}
-        {{ self::palette_color(name="gray_2", color=c.base) }}
-        {{ self::palette_color(name="gray_3", color=c.surface0) }}
-        {{ self::palette_color(name="neutral_0", color=c.crust) }}
-        {{ self::palette_color(name="neutral_1", color=c.mantle) }}
-        {{ self::palette_color(name="neutral_2", color=c.base) }}
-        {{ self::palette_color(name="neutral_3", color=c.surface0) }}
-        {{ self::palette_color(name="neutral_4", color=c.surface1) }}
-        {{ self::palette_color(name="neutral_5", color=c.surface2) }}
-        {{ self::palette_color(name="neutral_6", color=c.overlay0) }}
-        {{ self::palette_color(name="neutral_7", color=c.overlay1) }}
-        {{ self::palette_color(name="neutral_8", color=c.overlay2) }}
-        {{ self::palette_color(name="neutral_9", color=c.subtext0) }}
-        {{ self::palette_color(name="neutral_10", color=c.subtext1) }}
-        {{ self::palette_color(name="bright_green", color=c.green) }}
-        {{ self::palette_color(name="bright_red", color=c.red) }}
-        {{ self::palette_color(name="bright_orange", color=c.peach) }}
-        {{ self::palette_color(name="accent_blue", color=c.blue) }}
-        {{ self::palette_color(name="accent_red", color=c.red) }}
-        {{ self::palette_color(name="accent_green", color=c.green) }}
-        {{ self::palette_color(name="accent_warm_grey", color=c.overlay2) }}
-        {{ self::palette_color(name="accent_orange", color=c.peach) }}
-        {{ self::palette_color(name="accent_yellow", color=c.yellow) }}
-        {{ self::palette_color(name="accent_purple", color=c.lavender) }}
-        {{ self::palette_color(name="accent_pink", color=c.pink) }}
-        {{ self::palette_color(name="accent_indigo", color=c.mauve) }}
-        {{ self::palette_color(name="ext_warm_grey", color=c.overlay2) }}
-        {{ self::palette_color(name="ext_orange", color=c.peach) }}
-        {{ self::palette_color(name="ext_yellow", color=c.yellow) }}
-        {{ self::palette_color(name="ext_blue", color=c.blue) }}
-        {{ self::palette_color(name="ext_purple", color=c.lavender) }}
-        {{ self::palette_color(name="ext_pink", color=c.pink) }}
-        {{ self::palette_color(name="ext_indigo", color=c.mauve) }}
+        {{ self::palette_color(name="blue", color=blue) }}
+        {{ self::palette_color(name="red", color=red) }}
+        {{ self::palette_color(name="green", color=green) }}
+        {{ self::palette_color(name="yellow", color=yellow) }}
+        {{ self::palette_color(name="gray_1", color=mantle) }}
+        {{ self::palette_color(name="gray_2", color=base) }}
+        {{ self::palette_color(name="gray_3", color=surface0) }}
+        {{ self::palette_color(name="neutral_0", color=crust) }}
+        {{ self::palette_color(name="neutral_1", color=mantle) }}
+        {{ self::palette_color(name="neutral_2", color=base) }}
+        {{ self::palette_color(name="neutral_3", color=surface0) }}
+        {{ self::palette_color(name="neutral_4", color=surface1) }}
+        {{ self::palette_color(name="neutral_5", color=surface2) }}
+        {{ self::palette_color(name="neutral_6", color=overlay0) }}
+        {{ self::palette_color(name="neutral_7", color=overlay1) }}
+        {{ self::palette_color(name="neutral_8", color=overlay2) }}
+        {{ self::palette_color(name="neutral_9", color=subtext0) }}
+        {{ self::palette_color(name="neutral_10", color=subtext1) }}
+        {{ self::palette_color(name="bright_green", color=green) }}
+        {{ self::palette_color(name="bright_red", color=red) }}
+        {{ self::palette_color(name="bright_orange", color=peach) }}
+        {{ self::palette_color(name="accent_blue", color=blue) }}
+        {{ self::palette_color(name="accent_red", color=red) }}
+        {{ self::palette_color(name="accent_green", color=green) }}
+        {{ self::palette_color(name="accent_warm_grey", color=overlay2) }}
+        {{ self::palette_color(name="accent_orange", color=peach) }}
+        {{ self::palette_color(name="accent_yellow", color=yellow) }}
+        {{ self::palette_color(name="accent_purple", color=lavender) }}
+        {{ self::palette_color(name="accent_pink", color=pink) }}
+        {{ self::palette_color(name="accent_indigo", color=mauve) }}
+        {{ self::palette_color(name="ext_warm_grey", color=overlay2) }}
+        {{ self::palette_color(name="ext_orange", color=peach) }}
+        {{ self::palette_color(name="ext_yellow", color=yellow) }}
+        {{ self::palette_color(name="ext_blue", color=blue) }}
+        {{ self::palette_color(name="ext_purple", color=lavender) }}
+        {{ self::palette_color(name="ext_pink", color=pink) }}
+        {{ self::palette_color(name="ext_indigo", color=mauve) }}
     )),
     spacing: (
         space_none: 0,
@@ -110,21 +110,21 @@ whiskers:
         radius_xl: (160.0, 160.0, 160.0, 160.0),
         {%- endif %}
     ),
-    {{ self::other_color(name="bg_color", color=c.base, alpha=bg_alpha) }}
-    {{ self::other_color(name="text_tint", color=c.text) }}
-    {{ self::other_color(name="accent", color=c[accent]) }}
-    {{ self::other_color(name="success", color=c.green) }}
-    {{ self::other_color(name="warning", color=c.yellow) }}
-    {{ self::other_color(name="destructive", color=c.red) }}
-    {{ self::other_color(name="window_hint", color=c[window_hint]) }}
-    {% if flavor.name == "latte" -%}
+    {{ self::other_color(name="bg_color", color=base, alpha=bg_alpha) }}
+    {{ self::other_color(name="text_tint", color=text) }}
+    {{ self::other_color(name="accent", color=palette[accent]) }}
+    {{ self::other_color(name="success", color=green) }}
+    {{ self::other_color(name="warning", color=yellow) }}
+    {{ self::other_color(name="destructive", color=red) }}
+    {{ self::other_color(name="window_hint", color=palette[window_hint]) }}
+    {% if not flavor.dark -%}
     neutral_tint: None,
     primary_container_bg: None,
     secondary_container_bg: None,
     {%- else -%}
-    {{ self::other_color(name="neutral_tint", color=c.overlay1) }}
-    {{ self::other_color(name="primary_container_bg", color=c.surface0) }}
-    {{ self::other_color(name="secondary_container_bg", color=c.surface1) }}
+    {{ self::other_color(name="neutral_tint", color=overlay1) }}
+    {{ self::other_color(name="primary_container_bg", color=surface0) }}
+    {{ self::other_color(name="secondary_container_bg", color=surface1) }}
     {%- endif %}
     is_frosted: {{ frosted }},
     gaps: ({{ outer_gap_size }}, {{ inner_gap_size }}),
