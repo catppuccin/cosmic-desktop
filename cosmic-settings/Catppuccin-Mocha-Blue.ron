@@ -1,6 +1,6 @@
 (
     palette: Dark((
-        name: "Catpuccin-Mocha-Blue",
+        name: "Catppuccin-Mocha-Blue",
         blue: (
             red: 0.53725490,
             green: 0.70588235,

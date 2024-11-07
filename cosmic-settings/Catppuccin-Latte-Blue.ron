@@ -1,6 +1,6 @@
 (
     palette: Light((
-        name: "Catpuccin-Latte-Blue",
+        name: "Catppuccin-Latte-Blue",
         blue: (
             red: 0.11764706,
             green: 0.40000000,
