@@ -1,6 +1,6 @@
 (
     palette: Dark((
-        name: "Catppuccin-Mocha-Pink",
+        name: "Catppuccin-Mocha-Sky",
         blue: (
             red: 0.53725490,
             green: 0.70588235,
@@ -257,9 +257,9 @@
         alpha: 1.00000000,
     )),
     accent: Some((
-        red: 0.96078431,
-        green: 0.76078431,
-        blue: 0.90588235,
+        red: 0.53725490,
+        green: 0.86274510,
+        blue: 0.92156863,
         alpha: 1.00000000,
     )),
     success: Some((
@@ -281,9 +281,9 @@
         alpha: 1.00000000,
     )),
     window_hint: Some((
-        red: 0.96078431,
-        green: 0.76078431,
-        blue: 0.90588235,
+        red: 0.53725490,
+        green: 0.86274510,
+        blue: 0.92156863,
         alpha: 1.00000000,
     )),
     neutral_tint: Some((

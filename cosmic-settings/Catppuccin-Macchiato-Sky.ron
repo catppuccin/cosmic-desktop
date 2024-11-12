@@ -1,6 +1,6 @@
 (
     palette: Dark((
-        name: "Catppuccin-Macchiato-Blue",
+        name: "Catppuccin-Macchiato-Sky",
         blue: (
             red: 0.54117647,
             green: 0.67843137,
@@ -257,9 +257,9 @@
         alpha: 1.00000000,
     )),
     accent: Some((
-        red: 0.54117647,
-        green: 0.67843137,
-        blue: 0.95686275,
+        red: 0.56862745,
+        green: 0.84313725,
+        blue: 0.89019608,
         alpha: 1.00000000,
     )),
     success: Some((
@@ -281,9 +281,9 @@
         alpha: 1.00000000,
     )),
     window_hint: Some((
-        red: 0.54117647,
-        green: 0.67843137,
-        blue: 0.95686275,
+        red: 0.56862745,
+        green: 0.84313725,
+        blue: 0.89019608,
         alpha: 1.00000000,
     )),
     neutral_tint: Some((

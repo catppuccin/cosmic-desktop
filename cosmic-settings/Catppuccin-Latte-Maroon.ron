@@ -1,6 +1,6 @@
 (
     palette: Light((
-        name: "Catppuccin-Latte-Yellow",
+        name: "Catppuccin-Latte-Maroon",
         blue: (
             red: 0.11764706,
             green: 0.40000000,
@@ -257,9 +257,9 @@
         alpha: 1.00000000,
     )),
     accent: Some((
-        red: 0.87450980,
-        green: 0.55686275,
-        blue: 0.11372549,
+        red: 0.90196078,
+        green: 0.27058824,
+        blue: 0.32549020,
         alpha: 1.00000000,
     )),
     success: Some((
@@ -281,9 +281,9 @@
         alpha: 1.00000000,
     )),
     window_hint: Some((
-        red: 0.87450980,
-        green: 0.55686275,
-        blue: 0.11372549,
+        red: 0.90196078,
+        green: 0.27058824,
+        blue: 0.32549020,
         alpha: 1.00000000,
     )),
     neutral_tint: None,

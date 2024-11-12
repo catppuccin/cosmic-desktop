@@ -1,6 +1,6 @@
 (
     palette: Dark((
-        name: "Catppuccin-Frappe-Green",
+        name: "Catppuccin-Frappe-Maroon",
         blue: (
             red: 0.54901961,
             green: 0.66666667,
@@ -257,9 +257,9 @@
         alpha: 1.00000000,
     )),
     accent: Some((
-        red: 0.65098039,
-        green: 0.81960784,
-        blue: 0.53725490,
+        red: 0.91764706,
+        green: 0.60000000,
+        blue: 0.61176471,
         alpha: 1.00000000,
     )),
     success: Some((
@@ -281,9 +281,9 @@
         alpha: 1.00000000,
     )),
     window_hint: Some((
-        red: 0.65098039,
-        green: 0.81960784,
-        blue: 0.53725490,
+        red: 0.91764706,
+        green: 0.60000000,
+        blue: 0.61176471,
         alpha: 1.00000000,
     )),
     neutral_tint: Some((
