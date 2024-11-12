@@ -2,7 +2,7 @@ _default:
   @just --list
 
 clean:
-  rm -r themes | true
+  rm -rf themes
 
 build: clean
   whiskers templates/cosmic-settings.tera
