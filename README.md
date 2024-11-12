@@ -57,10 +57,11 @@ git clone https://github.com/catppuccin/cosmic-desktop.git
 
 ### Generating Custom Configs
 
-`generate.py` allows you to generate custom configs for COSMIC Desktop.
-You can use this script to generate a custom config with your preferred colors and other settings.
+The included whiskers themes allow you to generate custom configs for COSMIC Desktop. You can use
+them with the [`whiskers`](https://github.com/catppuccin/whiskers) program to generate
+a custom config with your preferred colors and other settings.
 
-1. To use the script, you need to have `python` and `pip` installed on your system.
+1. [Install whiskers](https://github.com/catppuccin/whiskers#installation)
 2. Clone this repository locally and cd into it
 
 ```bash
@@ -68,53 +69,24 @@ git clone https://github.com/catppuccin/cosmic-desktop.git
 cd cosmic-desktop
 ```
 
-3. Create a virtual environment and install the required dependencies
+3. Run `whiskers` with `--overrides` set to a JSON object with your desired options
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+whiskers templates/cosmic-settings.tera --overrides='{"roundness": "square", "window_hint_color": "peach", "bg_alpha": 0.8}'
 ```
 
-4. Run the script with your desired options
+## Available settings
+- `accent`: The primary/accent color. May be any of the Catppuccin palette color names, or a list of color names. Defaults to rendering a version of the theme for every palette color.
+- `roundness`: The roundness of the corners. Can be `round`, `slightlyround`, or `square`. Defaults to `round`.
+- `window_hint_color`: The color of the window hint. May be any of the Catppuccin palette color names. Defaults to matching the accent color.
+- `bg_alpha`: The alpha value (opacity) of the window background color. Must be a float between `0.0` and `1.0`. Defaults to `1.0`.
+- `frosted`: Enables blurred transparency. Must be a boolean. Defaults to `false`.
+- `outer_gap_size`: Compositor outer gap size. Must be an integer. Defaults to `0`.
+- `inner_gap_size`: Compositor inner gap size. Must be an integer. Defaults to `8`.
+- `active_hint_size`: Compositor active window hint outline width. Must be an integer. Defaults to `3`.
 
-```bash
-$ python generate.py --help
-usage: generate.py [-h] [--accent [accent color]]
-                   [--bg-alpha [background alpha]] [--frosted frosted effect]
-                   [--outer-gap [outer gap size]]
-                   [--inner-gap [inner gap size]]
-                   [--active-hint [active hint size]]
-                   [--roundness [roundness]]
-                   [--window-hint-color [window hint color]]
-                   [theme flavor]
-
-Generate a Catppuccin theme for Cosmic Desktop
-
-positional arguments:
-  theme flavor          The flavor of the theme to generate. Can be 'mocha',
-                        'frappe', 'macchiato', or 'latte'.
-
-options:
-  -h, --help            show this help message and exit
-  --accent [accent color], -a [accent color]
-                        The accent color to use for the theme.
-  --bg-alpha [background alpha], -b [background alpha]
-                        The alpha value of the background color.
-  --frosted frosted effect, -f frosted effect
-                        Whether to use frosted glass effect for the theme.
-  --outer-gap [outer gap size], -o [outer gap size]
-                        The size of the outer gap.
-  --inner-gap [inner gap size], -i [inner gap size]
-                        The size of the inner gap.
-  --active-hint [active hint size], -ah [active hint size]
-                        The size of the active hint.
-  --roundness [roundness], -r [roundness]
-                        The roundness of the corners. Can be 'round',
-                        'slightly round', or 'square'.
-  --window-hint-color [window hint color], -whc [window hint color]
-                        The color of the window hint.
-```
+You can also use whiskers with `--flavor` to only render a single flavor (`latte`, `frappe`, `macchiato`, `mocha`).
+By default, a version of the theme for all 4 flavors will be rendered.
 
 ## 💝 Thanks to
 
