@@ -120,14 +120,14 @@ whiskers:
     {{ self::optional_color(name="warning", color=yellow) }}
     {{ self::optional_color(name="destructive", color=red) }}
     {{ self::optional_color(name="window_hint", color=palette[window_hint]) }}
-    {% if not flavor.dark -%}
-    neutral_tint: None,
-    primary_container_bg: None,
-    secondary_container_bg: None,
-    {%- else -%}
+    {% if flavor.dark -%}
     {{ self::optional_color(name="neutral_tint", color=overlay1) }}
     {{ self::optional_color(name="primary_container_bg", color=surface0) }}
     {{ self::optional_color(name="secondary_container_bg", color=surface1) }}
+    {%- else -%}
+    neutral_tint: None,
+    primary_container_bg: None,
+    secondary_container_bg: None,
     {%- endif %}
     is_frosted: {{ frosted }},
     gaps: ({{ outer_gap_size }}, {{ inner_gap_size }}),
