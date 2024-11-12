@@ -12,7 +12,7 @@ whiskers:
     matrix:
     - flavor
     - accent
-    filename: "themes/{{ name }}-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}.ron"
+    filename: "themes/cosmic-settings/{{ name }}-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}+{{ roundness }}.ron"
 ---
 {%- if roundness is not matching("round|slightlyround|square") -%}
     {{ throw(message="roundness must be 'round', 'slightlyround', or 'square'") }}

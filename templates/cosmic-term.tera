@@ -4,7 +4,7 @@ whiskers:
     version: 2.5.1
     matrix:
     - flavor
-    filename: "themes/{{ name }}-{{ flavor.identifier | capitalize }}.ron"
+    filename: "themes/cosmic-term/{{ name }}-{{ flavor.identifier | capitalize }}.ron"
 ---
 {%- macro palette(name, black_light, black_dark, white_light, white_dark) -%}
     {{ name }}: (
