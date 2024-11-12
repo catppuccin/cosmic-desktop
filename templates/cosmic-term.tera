@@ -1,10 +1,9 @@
 ---
-name: "Catppuccin"
 whiskers:
     version: 2.5.1
     matrix:
     - flavor
-    filename: "themes/cosmic-term/{{ name }}-{{ flavor.identifier | capitalize }}.ron"
+    filename: "themes/cosmic-term/catppuccin-{{ flavor.identifier }}.ron"
 ---
 {%- macro palette(name, black_light, black_dark, white_light, white_dark) -%}
     {{ name }}: (
@@ -19,7 +18,7 @@ whiskers:
     ),
 {%- endmacro palete -%}
 (
-    name: "{{ name }} {{ flavor.name }}",
+    name: "Catppuccin {{ flavor.name }}",
     foreground: "#{{ text.hex }}",
     cursor: "#{{ rosewater.hex }}",
     bright_foreground: "#{{ text.hex }}",

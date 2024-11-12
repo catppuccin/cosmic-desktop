@@ -1,5 +1,4 @@
 ---
-name: "Catppuccin"
 roundness: "round"
 window_hint_color: ""
 bg_alpha: 1.0
@@ -12,7 +11,7 @@ whiskers:
     matrix:
     - flavor
     - accent
-    filename: "themes/cosmic-settings/{{ name }}-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}+{{ roundness }}.ron"
+    filename: "themes/cosmic-settings/catppuccin-{{ flavor.identifier }}-{{ accent }}+{{ roundness }}.ron"
 ---
 {%- if roundness is not matching("round|slightlyround|square") -%}
     {{ throw(message="roundness must be 'round', 'slightlyround', or 'square'") }}
