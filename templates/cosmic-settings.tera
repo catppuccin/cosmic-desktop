@@ -1,5 +1,6 @@
 ---
 name: "Catppuccin"
+roundness: "round"
 window_hint_color: ""
 bg_alpha: 1.0
 frosted: false
@@ -9,11 +10,13 @@ active_hint_size: 3
 whiskers:
     version: 2.5.1
     matrix:
-    - variant: ["", "round", "slightlyround", "square"]
     - flavor
     - accent
-    filename: "themes/{{ name }}{{ variant | capitalize }}-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}.ron"
+    filename: "themes/{{ name }}-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}.ron"
 ---
+{%- if roundness is not matching("round|slightlyround|square") -%}
+    {{ throw(message="roundness must be 'round', 'slightlyround', or 'square'") }}
+{%- endif -%}
 {%- if bg_alpha < 0 or bg_alpha > 1 -%}{{ throw(message="bg_alpha must be between 0.0 and 1.0") }}{%- endif -%}
 {%- set window_hint = if(cond=window_hint_color != "", t=window_hint_color, f=accent) -%}
 {%- macro palette_color(name, color) -%}
@@ -35,7 +38,7 @@ whiskers:
 {%- set palette = flavor.colors -%}
 (
     palette: {{ if(cond=flavor.dark, t="Dark", f="Light") }}((
-        name: "Carburetor-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}",
+        name: "Catppuccin-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}",
         {{ self::palette_color(name="blue", color=blue) }}
         {{ self::palette_color(name="red", color=red) }}
         {{ self::palette_color(name="green", color=green) }}
@@ -57,6 +60,13 @@ whiskers:
         {{ self::palette_color(name="bright_green", color=green) }}
         {{ self::palette_color(name="bright_red", color=red) }}
         {{ self::palette_color(name="bright_orange", color=peach) }}
+        {{ self::palette_color(name="ext_warm_grey", color=overlay2) }}
+        {{ self::palette_color(name="ext_orange", color=peach) }}
+        {{ self::palette_color(name="ext_yellow", color=yellow) }}
+        {{ self::palette_color(name="ext_blue", color=blue) }}
+        {{ self::palette_color(name="ext_purple", color=lavender) }}
+        {{ self::palette_color(name="ext_pink", color=pink) }}
+        {{ self::palette_color(name="ext_indigo", color=mauve) }}
         {{ self::palette_color(name="accent_blue", color=blue) }}
         {{ self::palette_color(name="accent_red", color=red) }}
         {{ self::palette_color(name="accent_green", color=green) }}
@@ -66,13 +76,6 @@ whiskers:
         {{ self::palette_color(name="accent_purple", color=lavender) }}
         {{ self::palette_color(name="accent_pink", color=pink) }}
         {{ self::palette_color(name="accent_indigo", color=mauve) }}
-        {{ self::palette_color(name="ext_warm_grey", color=overlay2) }}
-        {{ self::palette_color(name="ext_orange", color=peach) }}
-        {{ self::palette_color(name="ext_yellow", color=yellow) }}
-        {{ self::palette_color(name="ext_blue", color=blue) }}
-        {{ self::palette_color(name="ext_purple", color=lavender) }}
-        {{ self::palette_color(name="ext_pink", color=pink) }}
-        {{ self::palette_color(name="ext_indigo", color=mauve) }}
     )),
     spacing: (
         space_none: 0,
@@ -87,14 +90,14 @@ whiskers:
         space_xxxl: 128,
     ),
     corner_radii: (
-        {% if variant == "square" -%}
+        {% if roundness == "round" -%}
         radius_0: (0.0, 0.0, 0.0, 0.0),
-        radius_xs: (2.0, 2.0, 2.0, 2.0),
-        radius_s: (2.0, 2.0, 2.0, 2.0),
-        radius_m: (2.0, 2.0, 2.0, 2.0),
-        radius_l: (2.0, 2.0, 2.0, 2.0),
-        radius_xl: (2.0, 2.0, 2.0, 2.0),
-        {%- elif variant == "slightlyround" -%}
+        radius_xs: (4.0, 4.0, 4.0, 4.0),
+        radius_s: (8.0, 8.0, 8.0, 8.0),
+        radius_m: (16.0, 16.0, 16.0, 16.0),
+        radius_l: (32.0, 32.0, 32.0, 32.0),
+        radius_xl: (160.0, 160.0, 160.0, 160.0),
+        {%- elif roundness == "slightlyround" -%}
         radius_0: (0.0, 0.0, 0.0, 0.0),
         radius_xs: (2.0, 2.0, 2.0, 2.0),
         radius_s: (8.0, 8.0, 8.0, 8.0),
@@ -103,11 +106,11 @@ whiskers:
         radius_xl: (8.0, 8.0, 8.0, 8.0),
         {%- else -%}
         radius_0: (0.0, 0.0, 0.0, 0.0),
-        radius_xs: (4.0, 4.0, 4.0, 4.0),
-        radius_s: (8.0, 8.0, 8.0, 8.0),
-        radius_m: (16.0, 16.0, 16.0, 16.0),
-        radius_l: (32.0, 32.0, 32.0, 32.0),
-        radius_xl: (160.0, 160.0, 160.0, 160.0),
+        radius_xs: (2.0, 2.0, 2.0, 2.0),
+        radius_s: (2.0, 2.0, 2.0, 2.0),
+        radius_m: (2.0, 2.0, 2.0, 2.0),
+        radius_l: (2.0, 2.0, 2.0, 2.0),
+        radius_xl: (2.0, 2.0, 2.0, 2.0),
         {%- endif %}
     ),
     {{ self::optional_color(name="bg_color", color=base, alpha=bg_alpha) }}
