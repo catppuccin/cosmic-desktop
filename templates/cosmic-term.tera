@@ -1,0 +1,29 @@
+---
+whiskers:
+    version: 2.5.1
+    matrix:
+    - flavor
+    filename: "themes/cosmic-term/catppuccin-{{ flavor.identifier }}.ron"
+---
+{%- macro palette(name, black_light, black_dark, white_light, white_dark) -%}
+    {{ name }}: (
+        black: "#{{ if(cond=flavor.dark, t=black_dark.hex, f=black_light.hex) }}",
+        red: "#{{ red.hex }}",
+        green: "#{{ green.hex }}",
+        yellow: "#{{ yellow.hex }}",
+        blue: "#{{ blue.hex }}",
+        magenta: "#{{ pink.hex }}",
+        cyan: "#{{ teal.hex }}",
+        white: "#{{ if(cond=flavor.dark, t=white_dark.hex, f=white_light.hex) }}"
+    ),
+{%- endmacro palete -%}
+(
+    name: "Catppuccin {{ flavor.name }}",
+    foreground: "#{{ text.hex }}",
+    cursor: "#{{ rosewater.hex }}",
+    bright_foreground: "#{{ text.hex }}",
+    dim_foreground: "#{{ overlay0.hex }}",
+    {{ self::palette(name="normal", black_light=subtext1, black_dark=surface1, white_light=surface2, white_dark=subtext1) }}
+    {{ self::palette(name="bright", black_light=subtext0, black_dark=surface2, white_light=surface1, white_dark=subtext0) }}
+    {{ self::palette(name="dim", black_light=subtext1, black_dark=surface1, white_light=surface2, white_dark=subtext1) }}
+)

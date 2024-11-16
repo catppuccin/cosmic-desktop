@@ -1,0 +1,134 @@
+---
+roundness: "round"
+window_hint_color: ""
+bg_alpha: 1.0
+frosted: false
+outer_gap_size: 0
+inner_gap_size: 8
+active_hint_size: 3
+whiskers:
+    version: 2.5.1
+    matrix:
+    - flavor
+    - accent
+    filename: "themes/cosmic-settings/catppuccin-{{ flavor.identifier }}-{{ accent }}+{{ roundness }}.ron"
+---
+{%- if roundness is not matching("round|slightlyround|square") -%}
+    {{ throw(message="roundness must be 'round', 'slightlyround', or 'square'") }}
+{%- endif -%}
+{%- if bg_alpha < 0 or bg_alpha > 1 -%}{{ throw(message="bg_alpha must be between 0.0 and 1.0") }}{%- endif -%}
+{%- set window_hint = if(cond=window_hint_color != "", t=window_hint_color, f=accent) -%}
+{%- macro palette_color(name, color) -%}
+        {{ name }}: (
+            red: {{ color.rgb.r / 255 | trunc(places=8) }},
+            green: {{ color.rgb.g / 255 | trunc(places=8) }},
+            blue: {{ color.rgb.b / 255 | trunc(places=8) }},
+            alpha: 1.0,
+        ),
+{%- endmacro palette_color -%}
+{%- macro optional_color(name, color, alpha=1.0) -%}
+    {{ name }}: Some((
+        red: {{ color.rgb.r / 255 | trunc(places=8) }},
+        green: {{ color.rgb.g / 255 | trunc(places=8) }},
+        blue: {{ color.rgb.b / 255 | trunc(places=8) }},
+        alpha: {{ alpha | trunc(places=8) }},
+    )),
+{%- endmacro optional_color -%}
+{%- set palette = flavor.colors -%}
+(
+    palette: {{ if(cond=flavor.dark, t="Dark", f="Light") }}((
+        name: "Catppuccin-{{ flavor.identifier | capitalize }}-{{ accent | capitalize }}",
+        {{ self::palette_color(name="blue", color=blue) }}
+        {{ self::palette_color(name="red", color=red) }}
+        {{ self::palette_color(name="green", color=green) }}
+        {{ self::palette_color(name="yellow", color=yellow) }}
+        {{ self::palette_color(name="gray_1", color=mantle) }}
+        {{ self::palette_color(name="gray_2", color=base) }}
+        {{ self::palette_color(name="gray_3", color=surface0) }}
+        {{ self::palette_color(name="neutral_0", color=crust) }}
+        {{ self::palette_color(name="neutral_1", color=mantle) }}
+        {{ self::palette_color(name="neutral_2", color=base) }}
+        {{ self::palette_color(name="neutral_3", color=surface0) }}
+        {{ self::palette_color(name="neutral_4", color=surface1) }}
+        {{ self::palette_color(name="neutral_5", color=surface2) }}
+        {{ self::palette_color(name="neutral_6", color=overlay0) }}
+        {{ self::palette_color(name="neutral_7", color=overlay1) }}
+        {{ self::palette_color(name="neutral_8", color=overlay2) }}
+        {{ self::palette_color(name="neutral_9", color=subtext0) }}
+        {{ self::palette_color(name="neutral_10", color=subtext1) }}
+        {{ self::palette_color(name="bright_green", color=green) }}
+        {{ self::palette_color(name="bright_red", color=red) }}
+        {{ self::palette_color(name="bright_orange", color=peach) }}
+        {{ self::palette_color(name="ext_warm_grey", color=overlay2) }}
+        {{ self::palette_color(name="ext_orange", color=peach) }}
+        {{ self::palette_color(name="ext_yellow", color=yellow) }}
+        {{ self::palette_color(name="ext_blue", color=blue) }}
+        {{ self::palette_color(name="ext_purple", color=lavender) }}
+        {{ self::palette_color(name="ext_pink", color=pink) }}
+        {{ self::palette_color(name="ext_indigo", color=mauve) }}
+        {{ self::palette_color(name="accent_blue", color=blue) }}
+        {{ self::palette_color(name="accent_red", color=red) }}
+        {{ self::palette_color(name="accent_green", color=green) }}
+        {{ self::palette_color(name="accent_warm_grey", color=overlay2) }}
+        {{ self::palette_color(name="accent_orange", color=peach) }}
+        {{ self::palette_color(name="accent_yellow", color=yellow) }}
+        {{ self::palette_color(name="accent_purple", color=lavender) }}
+        {{ self::palette_color(name="accent_pink", color=pink) }}
+        {{ self::palette_color(name="accent_indigo", color=mauve) }}
+    )),
+    spacing: (
+        space_none: 0,
+        space_xxxs: 4,
+        space_xxs: 8,
+        space_xs: 12,
+        space_s: 16,
+        space_m: 24,
+        space_l: 32,
+        space_xl: 48,
+        space_xxl: 64,
+        space_xxxl: 128,
+    ),
+    corner_radii: (
+        {% if roundness == "round" -%}
+        radius_0: (0.0, 0.0, 0.0, 0.0),
+        radius_xs: (4.0, 4.0, 4.0, 4.0),
+        radius_s: (8.0, 8.0, 8.0, 8.0),
+        radius_m: (16.0, 16.0, 16.0, 16.0),
+        radius_l: (32.0, 32.0, 32.0, 32.0),
+        radius_xl: (160.0, 160.0, 160.0, 160.0),
+        {%- elif roundness == "slightlyround" -%}
+        radius_0: (0.0, 0.0, 0.0, 0.0),
+        radius_xs: (2.0, 2.0, 2.0, 2.0),
+        radius_s: (8.0, 8.0, 8.0, 8.0),
+        radius_m: (8.0, 8.0, 8.0, 8.0),
+        radius_l: (8.0, 8.0, 8.0, 8.0),
+        radius_xl: (8.0, 8.0, 8.0, 8.0),
+        {%- else -%}
+        radius_0: (0.0, 0.0, 0.0, 0.0),
+        radius_xs: (2.0, 2.0, 2.0, 2.0),
+        radius_s: (2.0, 2.0, 2.0, 2.0),
+        radius_m: (2.0, 2.0, 2.0, 2.0),
+        radius_l: (2.0, 2.0, 2.0, 2.0),
+        radius_xl: (2.0, 2.0, 2.0, 2.0),
+        {%- endif %}
+    ),
+    {{ self::optional_color(name="bg_color", color=base, alpha=bg_alpha) }}
+    {{ self::optional_color(name="text_tint", color=text) }}
+    {{ self::optional_color(name="accent", color=palette[accent]) }}
+    {{ self::optional_color(name="success", color=green) }}
+    {{ self::optional_color(name="warning", color=yellow) }}
+    {{ self::optional_color(name="destructive", color=red) }}
+    {{ self::optional_color(name="window_hint", color=palette[window_hint]) }}
+    {% if flavor.dark -%}
+    {{ self::optional_color(name="neutral_tint", color=overlay1) }}
+    {{ self::optional_color(name="primary_container_bg", color=surface0) }}
+    {{ self::optional_color(name="secondary_container_bg", color=surface1) }}
+    {%- else -%}
+    neutral_tint: None,
+    primary_container_bg: None,
+    secondary_container_bg: None,
+    {%- endif %}
+    is_frosted: {{ frosted }},
+    gaps: ({{ outer_gap_size }}, {{ inner_gap_size }}),
+    active_hint: {{ active_hint_size }},
+)
