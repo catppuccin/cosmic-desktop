@@ -254,43 +254,36 @@
         red: 0.80392157,
         green: 0.83921569,
         blue: 0.95686275,
-        alpha: 1.00000000,
     )),
     accent: Some((
         red: 0.79607843,
         green: 0.65098039,
         blue: 0.96862745,
-        alpha: 1.00000000,
     )),
     success: Some((
         red: 0.65098039,
         green: 0.89019608,
         blue: 0.63137255,
-        alpha: 1.00000000,
     )),
     warning: Some((
         red: 0.97647059,
         green: 0.88627451,
         blue: 0.68627451,
-        alpha: 1.00000000,
     )),
     destructive: Some((
         red: 0.95294118,
         green: 0.54509804,
         blue: 0.65882353,
-        alpha: 1.00000000,
     )),
     window_hint: Some((
         red: 0.79607843,
         green: 0.65098039,
         blue: 0.96862745,
-        alpha: 1.00000000,
     )),
     neutral_tint: Some((
         red: 0.49803922,
         green: 0.51764706,
         blue: 0.61176471,
-        alpha: 1.00000000,
     )),
     primary_container_bg: Some((
         red: 0.19215686,
