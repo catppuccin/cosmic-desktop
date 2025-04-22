@@ -26,14 +26,21 @@ whiskers:
             alpha: 1.0,
         ),
 {%- endmacro palette_color -%}
-{%- macro optional_color(name, color, alpha=1.0) -%}
+{%- macro optional_color(name, color) -%}
+    {{ name }}: Some((
+        red: {{ color.rgb.r / 255 | trunc(places=8) }},
+        green: {{ color.rgb.g / 255 | trunc(places=8) }},
+        blue: {{ color.rgb.b / 255 | trunc(places=8) }},
+    )),
+{%- endmacro optional_color -%}
+{%- macro optional_color_with_alpha(name, color, alpha=1.0) -%}
     {{ name }}: Some((
         red: {{ color.rgb.r / 255 | trunc(places=8) }},
         green: {{ color.rgb.g / 255 | trunc(places=8) }},
         blue: {{ color.rgb.b / 255 | trunc(places=8) }},
         alpha: {{ alpha | trunc(places=8) }},
     )),
-{%- endmacro optional_color -%}
+{%- endmacro optional_color_with_alpha -%}
 {%- set palette = flavor.colors -%}
 (
     palette: {{ if(cond=flavor.dark, t="Dark", f="Light") }}((
@@ -112,7 +119,7 @@ whiskers:
         radius_xl: (2.0, 2.0, 2.0, 2.0),
         {%- endif %}
     ),
-    {{ self::optional_color(name="bg_color", color=base, alpha=bg_alpha) }}
+    {{ self::optional_color_with_alpha(name="bg_color", color=base, alpha=bg_alpha) }}
     {{ self::optional_color(name="text_tint", color=text) }}
     {{ self::optional_color(name="accent", color=palette[accent]) }}
     {{ self::optional_color(name="success", color=green) }}
@@ -121,8 +128,8 @@ whiskers:
     {{ self::optional_color(name="window_hint", color=palette[window_hint]) }}
     {% if flavor.dark -%}
     {{ self::optional_color(name="neutral_tint", color=overlay1) }}
-    {{ self::optional_color(name="primary_container_bg", color=surface0) }}
-    {{ self::optional_color(name="secondary_container_bg", color=surface1) }}
+    {{ self::optional_color_with_alpha(name="primary_container_bg", color=surface0) }}
+    {{ self::optional_color_with_alpha(name="secondary_container_bg", color=surface1) }}
     {%- else -%}
     neutral_tint: None,
     primary_container_bg: None,
