@@ -7,7 +7,7 @@ outer_gap_size: 0
 inner_gap_size: 8
 active_hint_size: 3
 whiskers:
-    version: 2.5.1
+    version: ^2.5.1
     matrix:
     - flavor
     - accent
